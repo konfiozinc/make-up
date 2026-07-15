@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-stone-900 select-none">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="theme-color" content="#af7a2e"/>
+    <title>Nicole Montalvo - Tarjeta Digital Profesional</title>
+    
+    <!-- Tailwind CSS & Recursos del Design System -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in-up { opacity: 0; animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        
+        /* Efecto de Brillo de Marca Premium (Wow Effect) */
+        @keyframes luxuryGlow {
+            0%, 100% { border-color: rgba(228, 162, 45, 0.4); box-shadow: 0 0 12px rgba(175, 122, 46, 0.3); }
+            50% { border-color: rgba(179, 98, 23, 0.8); box-shadow: 0 0 20px rgba(228, 162, 45, 0.5); }
+        }
+        .wow-profile { animation: luxuryGlow 4s infinite ease-in-out; }
+        
+        /* Efecto de pulso controlado para el botón oficial de WhatsApp */
+        @keyframes whatsappPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 8px 20px -4px rgba(37, 211, 102, 0.4); }
+            50% { transform: scale(1.02); box-shadow: 0 14px 25px -4px rgba(37, 211, 102, 0.6); }
+        }
+        .pulse-whatsapp { animation: whatsappPulse 2s infinite ease-in-out; }
+        
+        .modal-overlay { position: fixed; inset: 0; background: rgba(26, 26, 26, 0.85); backdrop-filter: blur(8px); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; visibility: hidden; transition: opacity 0.2s ease, visibility 0.2s ease; }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-content { background: #ffffff; border-radius: 28px; width: 100%; max-w: 326px; transform: scale(0.96); transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1); border: 1px solid rgba(175,122,46,0.15); }
+        .modal-overlay.active .modal-content { transform: scale(1); }
+        .app-container { height: 100vh; height: 100dvh; }
+        
+        /* Toast Notification */
+        .toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%) translateY(20px); background: #1a1a1a; color: #fff; padding: 8px 20px; border-radius: 999px; font-size: 13px; opacity: 0; pointer-events: none; transition: all 0.3s ease; z-index: 2000; }
+        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    </style>
+</head>
+<body class="bg-stone-900 w-full flex justify-center items-center overflow-hidden">
+
+    <!-- 1. SPLASH SCREEN (Módulo Obligatorio) -->
+    <div id="splash" class="fixed inset-0 bg-[#fcf9f5] flex flex-col items-center justify-center z-[9999] transition-opacity duration-400">
+        <div class="text-center animate-pulse">
+            <div class="w-20 h-20 mx-auto bg-gradient-to-tr from-[#af7a2e] to-[#e4a22d] rounded-full flex items-center justify-center shadow-2xl border-4 border-white mb-3">
+                <i class="fas fa-sparkles text-3xl text-white"></i>
+            </div>
+            <h1 class="font-playfair text-2xl font-black text-[#af7a2e] tracking-wider">Nicole Montalvo</h1>
+            <p class="text-stone-500 text-[10px] font-bold uppercase tracking-widest mt-1">Belleza Integral</p>
+        </div>
+    </div>
+
+    <!-- APP CONTAINER FIJO (ALTO DE PANTALLA CONTENIDO - SIN SCROLL WEB) -->
+    <div class="app-container w-full max-w-[380px] bg-[#fcf9f5] relative flex flex-col justify-between overflow-hidden shadow-2xl">
+        
+        <!-- CUERPO DE LA APP -->
+        <div class="flex-grow flex flex-col justify-between pb-24 overflow-y-auto">
+            
+            <!-- 2. PORTADA & HERO (Ubicación de Seguridad Central) -->
+            <header class="relative bg-gradient-to-b from-[#af7a2e] via-[#b36217] to-stone-900 pt-6 pb-6 px-5 text-center text-white rounded-b-[40px] shadow-2xl flex-shrink-0 border-b border-[#af7a2e]/20">
+                <div class="absolute top-3 right-4 bg-white/20 backdrop-blur-md text-white font-black px-2.5 py-0.5 rounded-full text-[8px] uppercase tracking-wider shadow-sm">
+                    Estilismo HD
+                </div>
+                
+                <!-- Título Superior Directo -->
+                <h2 class="text-3xl font-playfair font-black text-[#fcf9f5] mt-2 tracking-tight">Nicole Montalvo</h2>
+                <p class="text-amber-200 font-bold text-[10px] uppercase tracking-widest mt-0.5">Especialista en Belleza Integral</p>
+                
+                <!-- Logotipo / Foto de Perfil Centralizada y Forzada contra Cortes -->
+                <div class="w-20 h-20 mx-auto bg-white rounded-full flex flex-col items-center justify-center border-4 wow-profile p-0.5 my-3 shadow-lg block overflow-hidden">
+                    <img src="https://i.ibb.co/fG932QD1/Whats-App-Image-Nicole.jpg" alt="Nicole Montalvo" class="w-full h-full object-cover rounded-full">
+                </div>
+                
+                <!-- Eslogan e Identificación Visual -->
+                <div class="bg-black/40 rounded-xl p-2 border border-white/10 backdrop-blur-md max-w-[230px] mx-auto shadow-inner">
+                    <span class="text-[9px] block text-amber-200/80 uppercase tracking-widest font-black leading-tight">Visajismo · Maquillaje · Peinados</span>
+                </div>
+            </header>
+
+            <!-- CONTENIDO CENTRAL DE CONVERSIÓN -->
+            <div class="px-5 space-y-3.5 flex-grow flex flex-col justify-center mt-2">
+                
+                <!-- 3. BOTÓN PRINCIPAL CON COLOR OFICIAL DE WHATSAPP (#25D366) -->
+                <div class="fade-in-up">
+                    <a href="https://wa.me/573009981576?text=Hola%20Nicole%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20de%20belleza." target="_blank" class="w-full flex items-center justify-center bg-[#25D366] text-white font-black py-3.5 px-4 rounded-xl text-center text-xs uppercase tracking-wider transition-transform transform active:scale-95 shadow-lg shadow-green-500/20 pulse-whatsapp">
+                        <i class="fab fa-whatsapp text-xl mr-2 text-white"></i>¡AGENDAR MI CITA YA!
+                    </a>
+                </div>
+
+                <!-- ESPECIALIDADES EN CRISTAL (Glassmorphism) -->
+                <div class="grid grid-cols-2 gap-2 fade-in-up">
+                    <div class="bg-[#af7a2e]/5 border border-[#af7a2e]/10 p-2.5 rounded-xl flex items-center gap-2 shadow-sm">
+                        <div class="w-6 h-6 bg-[#af7a2e]/10 rounded-lg flex items-center justify-center text-[#af7a2e] text-xs flex-shrink-0 shadow-inner"><i class="fas fa-wand-magic-sparkles"></i></div>
+                        <span class="text-[10px] font-bold text-stone-700 leading-tight">Maquillaje HD</span>
+                    </div>
+                    <div class="bg-[#af7a2e]/5 border border-[#af7a2e]/10 p-2.5 rounded-xl flex items-center gap-2 shadow-sm">
+                        <div class="w-6 h-6 bg-[#af7a2e]/10 rounded-lg flex items-center justify-center text-[#af7a2e] text-xs flex-shrink-0 shadow-inner"><i class="fas fa-paint-brush"></i></div>
+                        <span class="text-[10px] font-bold text-stone-700 leading-tight">Visajismo Experto</span>
+                    </div>
+                    <div class="bg-[#af7a2e]/5 border border-[#af7a2e]/10 p-2.5 rounded-xl flex items-center gap-2 shadow-sm">
+                        <div class="w-6 h-6 bg-[#af7a2e]/10 rounded-lg flex items-center justify-center text-[#af7a2e] text-xs flex-shrink-0 shadow-inner"><i class="fas fa-scissors"></i></div>
+                        <span class="text-[10px] font-bold text-stone-700 leading-tight">Peinados de Gala</span>
+                    </div>
+                    <div class="bg-[#af7a2e]/5 border border-[#af7a2e]/10 p-2.5 rounded-xl flex items-center gap-2 shadow-sm">
+                        <div class="w-6 h-6 bg-[#af7a2e]/10 rounded-lg flex items-center justify-center text-[#af7a2e] text-xs flex-shrink-0 shadow-inner"><i class="fas fa-palette"></i></div>
+                        <span class="text-[10px] font-bold text-stone-700 leading-tight">Colorimetría</span>
+                    </div>
+                </div>
+
+                <!-- ACCIONES RÁPIDAS ADICIONALES (Llamada Directa & Correo) -->
+                <div class="grid grid-cols-2 gap-2 fade-in-up">
+                    <a href="tel:+573009981576" class="bg-white border border-stone-200 py-2.5 px-2 rounded-xl flex items-center justify-center gap-1.5 text-[10px] font-bold text-stone-600 transition-colors hover:bg-stone-50">
+                        <i class="fas fa-phone text-[#af7a2e]"></i> Llamar Directo
+                    </a>
+                    <a href="mailto:nicolemont024@gmail.com" class="bg-white border border-stone-200 py-2.5 px-2 rounded-xl flex items-center justify-center gap-1.5 text-[10px] font-bold text-stone-600 transition-colors hover:bg-stone-50">
+                        <i class="fas fa-envelope text-[#af7a2e]"></i> Enviar Correo
+                    </a>
+                </div>
+            </div>
+            
+            <!-- ACCIÓN DE GUARDADO VCARD AUTOMATIZADA -->
+            <div class="px-5 mt-auto pt-2">
+                <button id="btn-vcard" class="w-full bg-[#af7a2e] hover:bg-[#b36217] text-white font-bold py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 text-xs uppercase tracking-wider border border-[#b36217] shadow-md">
+                    <i class="fas fa-address-card text-white"></i> Guardar Contacto en Agenda
+                </button>
+            </div>
+        </div>
+
+        <!-- 12. BARRA DE NAVEGACIÓN INFERIOR (ESTILO APP FIJA NATIVA) -->
+        <nav class="absolute bottom-0 inset-x-0 bg-white border-t border-stone-200 px-2 py-2.5 flex justify-around items-center z-20 shadow-2xl">
+            <button id="nav-services" class="flex flex-col items-center justify-center text-stone-400 hover:text-[#af7a2e] w-12 transition-colors">
+                <i class="fas fa-briefcase text-base"></i>
+                <span class="text-[9px] font-bold mt-1">Servicios</span>
+            </button>
+            <button id="nav-gallery" class="flex flex-col items-center justify-center text-stone-400 hover:text-[#af7a2e] w-12 transition-colors">
+                <i class="fas fa-images text-base"></i>
+                <span class="text-[9px] font-bold mt-1">Galería</span>
+            </button>
+            <button id="nav-testimonials" class="flex flex-col items-center justify-center text-stone-400 hover:text-[#af7a2e] w-12 transition-colors">
+                <i class="fas fa-comment-dots text-base"></i>
+                <span class="text-[9px] font-bold mt-1">Opiniones</span>
+            </button>
+            <button id="nav-info" class="flex flex-col items-center justify-center text-stone-400 hover:text-[#af7a2e] w-12 transition-colors">
+                <i class="fas fa-info-circle text-base"></i>
+                <span class="text-[9px] font-bold mt-1">Información</span>
+            </button>
+            <button id="nav-share" class="flex flex-col items-center justify-center text-stone-400 hover:text-[#af7a2e] w-12 transition-colors">
+                <i class="fas fa-share-alt text-base"></i>
+                <span class="text-[9px] font-bold mt-1">Compartir</span>
+            </button>
+        </nav>
+    </div>
+
+    <!-- ================= MODALES DEL DESIGN SYSTEM FIJO ================= -->
+
+    <!-- MODAL DE SERVICIOS -->
+    <div id="modal-services" class="modal-overlay">
+        <div class="modal-content overflow-hidden">
+            <div class="bg-[#af7a2e] text-white p-4 font-bold text-xs uppercase tracking-wider flex justify-between items-center">
+                <span><i class="fas fa-briefcase mr-2"></i>Portafolio de Servicios</span>
+                <button class="close-modal text-lg font-bold px-2 text-white/80 hover:text-white">&times;</button>
+            </div>
+            <div class="p-4 max-h-[60vh] overflow-y-auto space-y-3.5 text-stone-800">
+                <div class="p-3 bg-stone-50 rounded-xl border border-stone-200/60 shadow-sm">
+                    <h4 class="font-bold text-[#b36217] text-xs uppercase">✨ Diagnóstico de Piel</h4>
+                    <p class="text-[11px] text-stone-600 mt-0.5 leading-relaxed">Preparación y cuidado profesional para realzar tu belleza natural.</p>
+                </div>
+                <div class="p-3 bg-stone-50 rounded-xl border border-stone-200/60 shadow-sm">
+                    <h4 class="font-bold text-[#b36217] text-xs uppercase">🎨 Visajismo y Contouring</h4>
+                    <p class="text-[11px] text-stone-600 mt-0.5 leading-relaxed">Esculpe tu rostro con luces y sombras bajo técnica profesional.</p>
+                </div>
+                <div class="p-3 bg-stone-50 rounded-xl border border-stone-200/60 shadow-sm">
+                    <h4 class="font-bold text-[#b36217] text-xs uppercase">🌈 Colorimetría Aplicada</h4>
+                    <p class="text-[11px] text-stone-600 mt-0.5 leading-relaxed">La ciencia del color para elegir los tonos que mejor te favorecen.</p>
+                </div>
+                <div class="p-3 bg-stone-50 rounded-xl border border-stone-200/60 shadow-sm">
+                    <h4 class="font-bold text-[#b36217] text-xs uppercase">📸 Maquillaje Editorial HD</h4>
+                    <p class="text-[11px] text-stone-600 mt-0.5 leading-relaxed">Alta definición para fotografía, pasarela y eventos especiales.</p>
+                </div>
+                <div class="p-3 bg-stone-50 rounded-xl border border-stone-200/60 shadow-sm">
+                    <h4 class="font-bold text-[#b36217] text-xs uppercase">💇 Peinados y Estilismo</h4>
+                    <p class="text-[11px] text-stone-600 mt-0.5 leading-relaxed">Tendencias y técnicas profesionales para todo tipo de cabello.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE GALERÍA (SWIPER INTEGRADO) -->
+    <div id="modal-gallery" class="modal-overlay">
+        <div class="modal-content overflow-hidden">
+            <div class="bg-[#af7a2e] text-white p-4 font-bold text-xs uppercase tracking-wider flex justify-between items-center">
+                <span><i class="fas fa-images mr-2"></i>Galería de Cambios</span>
+                <button class="close-modal text-lg font-bold px-2 text-white/80 hover:text-white">&times;</button>
+            </div>
+            <div class="p-4">
+                <div class="swiper-container shadow-md rounded-2xl border border-stone-200">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Trabajo 1"></div>
+                        <div class="swiper-slide"><img src="https://images.pexels.com/photos/2820886/pexels-photo-2820886.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Trabajo 2"></div>
+                        <div class="swiper-slide"><img src="https://images.pexels.com/photos/2065195/pexels-photo-2065195.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Trabajo 3"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <p class="text-[10px] text-center text-stone-400 mt-2.5 font-medium">Desliza para ver más trabajos de estilismo real.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE TESTIMONIOS -->
+    <div id="modal-testimonials" class="modal-overlay">
+        <div class="modal-content overflow-hidden">
+            <div class="bg-[#af7a2e] text-white p-4 font-bold text-xs uppercase tracking-wider flex justify-between items-center">
+                <span><i class="fas fa-comment-dots mr-2"></i>Opiniones de Clientes</span>
+                <button class="close-modal text-lg font-bold px-2 text-white/80 hover:text-white">&times;</button>
+            </div>
+            <div class="p-4 max-h-[60vh] overflow-y-auto space-y-3 text-stone-800">
+                <div class="bg-stone-50 p-3 rounded-xl border border-stone-200/60 shadow-sm">
+                    <p class="italic text-[11px] leading-relaxed text-stone-700">"Nicole transformó mi look por completo. Su técnica de visajismo es impresionante, me sentí radiante."</p>
+                    <p class="text-[9px] font-bold text-[#af7a2e] text-right mt-1.5">— María G.</p>
+                </div>
+                <div class="bg-stone-50 p-3 rounded-xl border border-stone-200/60 shadow-sm">
+                    <p class="italic text-[11px] leading-relaxed text-stone-700">"El mejor maquillaje que me han hecho. Profesional, atenta y con un ojo clínico para los colores."</p>
+                    <p class="text-[9px] font-bold text-[#af7a2e] text-right mt-1.5">— Laura S.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE INFORMACIÓN -->
+    <div id="modal-info" class="modal-overlay">
+        <div class="modal-content overflow-hidden">
+            <div class="bg-[#af7a2e] text-white p-4 font-bold text-xs uppercase tracking-wider flex justify-between items-center">
+                <span><i class="fas fa-info-circle mr-2"></i>Datos Operativos</span>
+                <button class="close-modal text-lg font-bold px-2 text-white/80 hover:text-white">&times;</button>
+            </div>
+            <div class="p-4 space-y-3 text-stone-800 text-[11px]">
+                <div class="p-3 bg-stone-50 rounded-xl border flex items-center gap-3">
+                    <i class="fas fa-clock text-[#af7a2e] text-sm"></i>
+                    <span>Lunes a Sábado: 9:00 AM – 7:00 PM</span>
+                </div>
+                <div class="p-3 bg-stone-50 rounded-xl border flex items-center gap-3">
+                    <i class="fas fa-map-marker-alt text-[#af7a2e] text-sm"></i>
+                    <span>South Beach, Miami, FL</span>
+                </div>
+                <div class="p-3 bg-stone-50 rounded-xl border flex items-center gap-3">
+                    <i class="fas fa-phone-alt text-[#af7a2e] text-sm"></i>
+                    <span>+57 300 998 1576</span>
+                </div>
+                <p class="text-[10px] text-stone-400 text-center font-semibold italic mt-1">* Atención exclusiva bajo cita previa.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICACIÓN -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Desvanecimiento controlado del Splash Screen
+            setTimeout(() => {
+                const splash = document.getElementById('splash');
+                if(splash) {
+                    splash.style.opacity = '0';
+                    setTimeout(() => splash.style.display = 'none', 400);
+                }
+            }, 1000);
+
+            // Controlador de Modales Modular del Framework
+            const setupAppModal = (triggerId, modalId) => {
+                const trigger = document.getElementById(triggerId);
+                const modal = document.getElementById(modalId);
+                if (!trigger || !modal) return;
+                
+                trigger.addEventListener('click', (e) => { e.preventDefault(); modal.classList.add('active'); });
+                modal.querySelector('.close-modal').addEventListener('click', () => modal.classList.remove('active'));
+                modal.addEventListener('click', (e) => { if(e.target === modal) modal.classList.remove('active'); });
+            };
+
+            // Inicializar disparadores de la barra inferior tipo App
+            setupAppModal('nav-services', 'modal-services');
+            setupAppModal('nav-gallery', 'modal-gallery');
+            setupAppModal('nav-testimonials', 'modal-testimonials');
+            setupAppModal('nav-info', 'modal-info');
+            setupAppModal('nav-share', 'modal-qr');
+
+            // Swiper para galería interna
+            new Swiper('.swiper-container', {
+                slidesPerView: 1,
+                spaceBetween: 0,
+                pagination: { el: '.swiper-pagination', clickable: true },
+                loop: true,
+                autoplay: { delay: 3000, disableOnInteraction: false }
+            });
+
+            // Toast de Feedback
+            const toast = document.getElementById('toast');
+            const showToast = (msg) => { 
+                toast.textContent = msg; 
+                toast.classList.add('show'); 
+                setTimeout(() => toast.classList.remove('show'), 2200); 
+            };
+
+            // Compartir URL de Producción Nativa
+            const urlReal = window.location.href;
+            document.getElementById('nav-share').addEventListener('click', async (e) => {
+                e.preventDefault();
+                try {
+                    if (navigator.share) {
+                        await navigator.share({ title: 'Nicole Montalvo', url: urlReal });
+                    } else {
+                        await navigator.clipboard.writeText(urlReal);
+                        showToast('Enlace copiado al portapapeles');
+                    }
+                } catch(err) {}
+            });
+
+            // Descarga de vCard Corporativa Corregida
+            const btnVcard = document.getElementById('btn-vcard');
+            if (btnVcard) {
+                btnVcard.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const vCardData = `BEGIN:VCARD\nVERSION:3.0\nFN:Nicole Montalvo\nORG:Nicole Montalvo Estilismo\nTEL;TYPE=CELL,VOICE;PREF=1:+573009981576\nEMAIL:nicolemont024@gmail.com\nNOTE:Especialista en Belleza Integral. Visajismo, maquillaje, colorimetría y peinados.\nURL:${urlReal}\nEND:VCARD`;
+                    const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
+                    const url = URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.download = 'Nicole_Montalvo_Contacto.vcf';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    URL.revokeObjectURL(url);
+                    showToast('Tarjeta de contacto guardada');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
