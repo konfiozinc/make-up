@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="h-full bg-stone-900 select-none">
+<html lang="es" class="h-full bg-slate-950 select-none">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
@@ -63,11 +63,11 @@
     <div class="app-container w-full max-w-[380px] bg-[#fcf9f5] relative flex flex-col justify-between overflow-hidden shadow-2xl">
         
         <!-- CUERPO DE LA APP -->
-        <div class="flex-grow flex flex-col justify-between pb-24 overflow-y-auto">
+        <div class="flex-grow flex flex-col justify-between pb-28 overflow-y-auto">
             
             <!-- 2. PORTADA & HERO (Ubicación de Seguridad Central) -->
             <header class="relative bg-gradient-to-b from-[#af7a2e] via-[#b36217] to-stone-900 pt-6 pb-6 px-5 text-center text-white rounded-b-[40px] shadow-2xl flex-shrink-0 border-b border-[#af7a2e]/20">
-                <div class="absolute top-3 right-4 bg-white/20 backdrop-blur-md text-white font-black px-2.5 py-0.5 rounded-full text-[8px] uppercase tracking-wider shadow-sm">
+                <div class="absolute top-3 right-4 bg-white/20 backdrop-blur-md text-white font-black px-2.5 py-0.5 rounded-full text-[8px] uppercase tracking-wider shadow-md">
                     Estilismo HD
                 </div>
                 
@@ -135,29 +135,35 @@
             </div>
         </div>
 
-        <!-- 12. BARRA DE NAVEGACIÓN INFERIOR (ESTILO APP FIJA NATIVA) -->
-        <nav class="absolute bottom-0 inset-x-0 bg-white border-t border-stone-200 px-2 py-2.5 flex justify-around items-center z-20 shadow-2xl">
-            <button id="nav-services" class="flex flex-col items-center justify-center text-stone-400 hover:text-[#af7a2e] w-12 transition-colors">
-                <i class="fas fa-briefcase text-base"></i>
-                <span class="text-[9px] font-bold mt-1">Servicios</span>
-            </button>
-            <button id="nav-gallery" class="flex flex-col items-center justify-center text-stone-400 hover:text-[#af7a2e] w-12 transition-colors">
-                <i class="fas fa-images text-base"></i>
-                <span class="text-[9px] font-bold mt-1">Galería</span>
-            </button>
-            <button id="nav-testimonials" class="flex flex-col items-center justify-center text-stone-400 hover:text-[#af7a2e] w-12 transition-colors">
-                <i class="fas fa-comment-dots text-base"></i>
-                <span class="text-[9px] font-bold mt-1">Opiniones</span>
-            </button>
-            <button id="nav-info" class="flex flex-col items-center justify-center text-stone-400 hover:text-[#af7a2e] w-12 transition-colors">
-                <i class="fas fa-info-circle text-base"></i>
-                <span class="text-[9px] font-bold mt-1">Información</span>
-            </button>
-            <button id="nav-share" class="flex flex-col items-center justify-center text-stone-400 hover:text-[#af7a2e] w-12 transition-colors">
-                <i class="fas fa-share-alt text-base"></i>
-                <span class="text-[9px] font-bold mt-1">Compartir</span>
-            </button>
-        </nav>
+        <!-- 12. BARRA DE NAVEGACIÓN INFERIOR & PIE DE TARJETA ACTUALIZADO -->
+        <div class="absolute bottom-0 inset-x-0 bg-white border-t border-stone-200 z-20 flex flex-col shadow-2xl">
+            <nav class="px-2 py-2.5 flex justify-around items-center">
+                <button id="nav-services" class="flex flex-col items-center justify-center text-stone-400 hover:text-[#af7a2e] w-12 transition-colors">
+                    <i class="fas fa-briefcase text-base"></i>
+                    <span class="text-[9px] font-bold mt-1">Servicios</span>
+                </button>
+                <button id="nav-gallery" class="flex flex-col items-center justify-center text-stone-400 hover:text-[#af7a2e] w-12 transition-colors">
+                    <i class="fas fa-images text-base"></i>
+                    <span class="text-[9px] font-bold mt-1">Galería</span>
+                </button>
+                <button id="nav-testimonials" class="flex flex-col items-center justify-center text-stone-400 hover:text-[#af7a2e] w-12 transition-colors">
+                    <i class="fas fa-comment-dots text-base"></i>
+                    <span class="text-[9px] font-bold mt-1">Opiniones</span>
+                </button>
+                <button id="nav-info" class="flex flex-col items-center justify-center text-stone-400 hover:text-[#af7a2e] w-12 transition-colors">
+                    <i class="fas fa-info-circle text-base"></i>
+                    <span class="text-[9px] font-bold mt-1">Información</span>
+                </button>
+                <button id="nav-share" class="flex flex-col items-center justify-center text-stone-400 hover:text-[#af7a2e] w-12 transition-colors">
+                    <i class="fas fa-share-alt text-base"></i>
+                    <span class="text-[9px] font-bold mt-1">Compartir</span>
+                </button>
+            </nav>
+            <!-- SELLO OFICIAL DE MARCA MANDATORIO V2.0 -->
+            <div class="text-center text-[8px] tracking-wider text-stone-400 font-medium bg-white pb-1.5 uppercase border-t border-stone-100 pt-0.5">
+                Creado por KONFÍO ZINC — Todos los derechos reservados
+            </div>
+        </div>
     </div>
 
     <!-- ================= MODALES DEL DESIGN SYSTEM FIJO ================= -->
