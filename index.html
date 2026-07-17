@@ -10,7 +10,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght=600;700;900&family=Poppins:wght=300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -315,8 +315,10 @@
                 setTimeout(() => toast.classList.remove('show'), 2200); 
             };
 
+            // URL fija de producción para evitar enlaces dinámicos rotos tras el renombre
+            const urlReal = "https://konfiozinc.github.io/makeup_artist/";
+
             // Compartir URL de Producción Nativa
-            const urlReal = window.location.href;
             document.getElementById('nav-share').addEventListener('click', async (e) => {
                 e.preventDefault();
                 try {
