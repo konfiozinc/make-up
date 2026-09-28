@@ -1,0 +1,16 @@
+{
+  "name": "Make-up | Nicole Montalvo",
+  "short_name": "Make-up",
+  "description": "Belleza integral: visajismo, maquillaje HD, colorimetría y peinados de gala. Agenda tu cita.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fcf9f5",
+  "theme_color": "#af7a2e",
+  "lang": "es",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/apple-touch-180.png", "sizes": "180x180", "type": "image/png", "purpose": "any" }
+  ]
+}
